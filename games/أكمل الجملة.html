@@ -26,8 +26,13 @@ button.primary{background:linear-gradient(135deg,#22c1c3,#5b6cff);color:white;bo
 <button class="primary" id="start">ابدأ</button>
 </section>
 </main><script>
-const data=[["تشرق الشمس في ____","الصباح",["المساء","الصباح","الليل","الشتاء"]],["نكتب بالقلم على ____","الورق",["الزجاج","الماء","الورق","الرمل"]],["يعيش السمك في ____","الماء",["الماء","الهواء","التراب","النار"]],["عاصمة الجزائر هي ____","الجزائر",["وهران","قسنطينة","الجزائر","البليدة"]],["الكتاب نقرأه بـ ____","العينين",["الأذنين","العينين","اليدين","القدمين"]],["الفصل الذي تتساقط فيه الأوراق هو ____","الخريف",["الربيع","الصيف","الخريف","الشتاء"]],["مجموع 5 + 3 يساوي ____","8",["6","7","8","9"]]];
-let i=0,s=0,active=false;const $=x=>document.getElementById(x);
+const defaultData=[["تشرق الشمس في ____","الصباح",["المساء","الصباح","الليل","الشتاء"]],["نكتب بالقلم على ____","الورق",["الزجاج","الماء","الورق","الرمل"]],["يعيش السمك في ____","الماء",["الماء","الهواء","التراب","النار"]],["عاصمة الجزائر هي ____","الجزائر",["وهران","قسنطينة","الجزائر","البليدة"]],["الكتاب نقرأه بـ ____","العينين",["الأذنين","العينين","اليدين","القدمين"]],["الفصل الذي تتساقط فيه الأوراق هو ____","الخريف",["الربيع","الصيف","الخريف","الشتاء"]],["مجموع 5 + 3 يساوي ____","8",["6","7","8","9"]]];
+function readActivity(){try{const id=new URLSearchParams(location.search).get('activity');return JSON.parse(localStorage.getItem('midadActivities')||'[]').find(a=>String(a.id)===id&&a.template==='games/أكمل الجملة.html')}catch(e){return null}}
+const currentActivity=readActivity();
+function parseCustomQuestions(raw){return raw.split(/\n+/).map(line=>line.split('|').map(v=>v.trim())).filter(p=>p.length>=3&&p[0]&&p[1]).map(p=>{const opts=p[2].split(/[،,]/).map(v=>v.trim()).filter(Boolean);if(!opts.includes(p[1]))opts.unshift(p[1]);return [p[0],p[1],opts.slice(0,4)]}).filter(q=>q[2].length>=2)}
+const data=currentActivity?parseCustomQuestions(currentActivity.questions):defaultData;
+if(currentActivity){document.querySelector('h1').textContent=currentActivity.name;document.querySelector('.sub').textContent='نشاط مخصص · أكمل الجمل واختر الإجابة المناسبة.';if(!data.length)alert('لم نعثر على أسئلة صالحة. ارجع إلى منشئ النشاط واكتب الأسئلة بالصيغة المطلوبة.');}
+const $=x=>document.getElementById(x);
 function start(){i=0;s=0;active=true;$('score').textContent=0;$('start').style.display='none';show()}
 function show(){if(i===data.length){$('sentence').textContent='أحسنت! انتهى التحدي';$('opts').innerHTML='';$('msg').textContent='مجموعك '+s+' نقطة';$('start').textContent='إعادة اللعب';$('start').style.display='block';active=false;return}
 $('round').textContent=i+1;$('bar').style.width=(i/data.length*100)+'%';$('sentence').textContent=data[i][0];$('opts').innerHTML='';data[i][2].forEach(v=>{let b=document.createElement('button');b.textContent=v;b.onclick=()=>pick(v);$('opts').appendChild(b)});$('msg').textContent=''}
