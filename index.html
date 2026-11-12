@@ -18,11 +18,11 @@
 <div class="section"><h2>ألعاب التفكير والمعرفة</h2><small>اختبر معلوماتك بسرعة</small></div><section class="games"><article class="game"><div class="thumb"><canvas id="v7"></canvas></div><div class="info"><h3>صح أم خطأ</h3><p>اقرأ العبارة وحدّد إن كانت صحيحة أم خاطئة.</p><a class="play" href="games/صح أم خطأ.html">ابدأ اللعب ←</a></div></article></section>
 
 <dialog class="activity-modal" id="activityModal" aria-labelledby="activityTitle"><div class="activity-head"><h2 id="activityTitle">إنشاء نشاط جديد</h2><button class="activity-close" id="closeActivity" aria-label="إغلاق">×</button></div><div class="activity-body">
-<div class="activity-step"><label for="activityTemplate">1. اختر قالب اللعبة</label><select id="activityTemplate"><option value="games/أكمل الجملة.html">أكمل الجملة</option><option value="games/سباق الحروف.html">سباق الحروف</option><option value="games/صح أم خطأ.html">صح أم خطأ</option></select></div>
+<div class="activity-step"><label for="activityTemplate">1. اختر قالب اللعبة</label><select id="activityTemplate"><option value="games/أكمل الجملة.html">أكمل الجملة</option><option value="games/سباق الحروف.html">سباق الحروف</option><option value="games/صح أم خطأ.html">صح أم خطأ</option><option value="games/شد الحبل - نشاط مخصص.html">شدّ الحبل</option></select></div>
 <div class="activity-step"><label for="lessonName">2. اسم الدرس</label><input id="lessonName" type="text" placeholder="مثال: أنواع الجملة في اللغة العربية"></div>
 <div class="activity-step"><label for="lessonFile">3. ارفع محتوى الدرس (PDF أو Word)</label><input id="lessonFile" type="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"><div class="activity-help">يدعم PDF وWord بصيغة DOCX. يمكنك أيضًا تجاوز الملف وكتابة المحتوى بنفسك.</div></div>
 <div class="activity-step"><label for="lessonContent">4. محتوى الدرس — يمكنك تعديله أو كتابته يدويًا</label><textarea id="lessonContent" placeholder="سيظهر هنا النص المستخرج من الملف، أو اكتب محتوى الدرس بنفسك..."></textarea></div>
-<div class="activity-step"><label for="activityQuestions">5. أسئلة النشاط (سؤال في كل سطر)</label><textarea id="activityQuestions" placeholder="اكتب الأسئلة وفق الصيغة الموضحة أسفل الحقل..."></textarea><div class="activity-help" id="questionFormatHelp">أكمل الجملة: الجملة الناقصة | الإجابة | خيار1، خيار2، خيار3، خيار4</div></div><div class="activity-help">القوالب المتصلة حاليًا بالأنشطة المخصصة: أكمل الجملة، سباق الحروف، صح أم خطأ. ستُضاف بقية الألعاب تباعًا.</div>
+<div class="activity-step"><label for="activityQuestions">5. أسئلة النشاط (سؤال في كل سطر)</label><textarea id="activityQuestions" placeholder="اكتب الأسئلة وفق الصيغة الموضحة أسفل الحقل..."></textarea><div class="activity-help" id="questionFormatHelp">أكمل الجملة: الجملة الناقصة | الإجابة | خيار1، خيار2، خيار3، خيار4</div></div><div class="activity-help">القوالب المتصلة حاليًا بالأنشطة المخصصة: أكمل الجملة، سباق الحروف، صح أم خطأ، شدّ الحبل. ستُضاف بقية الألعاب تباعًا.</div>
 <div class="activity-actions"><button class="activity-secondary" id="suggestQuestions" type="button">اقتراح مسودة أسئلة</button><button class="activity-primary" id="saveActivity" type="button">حفظ النشاط</button></div><div class="activity-status" id="activityStatus" role="status"></div><div id="savedActivities"></div>
 </div></dialog>
 <footer class="footer">مِداد · مساحة تجمع التعلّم بالمتعة</footer></main>
@@ -73,6 +73,8 @@ document.getElementById('suggestQuestions').addEventListener('click',()=>{
   rows=sentences.map((s,i)=>{const a=answers[i];const stem=s.replace(/\s+[^\s]+$/,'')+' ____';const opts=[a,...answers.filter(x=>x!==a).slice(0,3)];return stem+' | '+a+' | '+opts.join('، ');});
  }else if(t.includes('سباق الحروف')){
   rows=words.slice(0,8).map((w,i)=>{const opts=[w,...words.filter(x=>x!==w).slice(i,i+3)];return w[0]+' | '+opts.join('، ')+' | 1';});
+ }else if(t.includes('شد الحبل')){
+  rows=sentences.map((s,i)=>{const a=words[i%words.length];const opts=[a,...words.filter(x=>x!==a).slice(0,3)];return s+' | '+a+' | '+opts.join('، ');});
  }else{
   rows=sentences.map(s=>s+' | صح أو خطأ');
  }
@@ -83,7 +85,7 @@ document.getElementById('saveActivity').addEventListener('click',()=>{
  const name=document.getElementById('lessonName').value.trim(),content=document.getElementById('lessonContent').value.trim(),questions=document.getElementById('activityQuestions').value.trim(),template=document.getElementById('activityTemplate').value;
  if(!name){activityStatus.textContent='اكتب اسم الدرس أولًا.';return;}
  if(!content&&!questions){activityStatus.textContent='أضف محتوى الدرس أو أسئلة النشاط أولًا.';return;}
- const supported=['games/أكمل الجملة.html','games/سباق الحروف.html','games/صح أم خطأ.html'];
+ const supported=['games/أكمل الجملة.html','games/سباق الحروف.html','games/صح أم خطأ.html','games/شد الحبل - نشاط مخصص.html'];
  if(!supported.includes(template)){activityStatus.textContent='هذا القالب لم يُربط بعد بمنشئ الأنشطة.';return;}
  const item={id:Date.now(),name,content,questions,template,createdAt:new Date().toLocaleString('ar-DZ')};
  try{const list=JSON.parse(localStorage.getItem('midadActivities')||'[]');list.unshift(item);localStorage.setItem('midadActivities',JSON.stringify(list));}
