@@ -32,6 +32,7 @@ const currentActivity=readActivity();
 function parseCustomQuestions(raw){return raw.split(/\n+/).map(line=>line.split('|').map(v=>v.trim())).filter(p=>p.length>=2&&p[0]&&p[1]).map(p=>[p[0],/^(صح|صحيح|true)$/i.test(p[1])]).filter(p=>/^(صح|صحيح|true|خطأ|خاطئ|false)$/i.test(p[1]));}
 const q=currentActivity?parseCustomQuestions(currentActivity.questions):defaultQ;
 if(currentActivity){document.querySelector('h1').textContent=currentActivity.name;document.querySelector('.sub').textContent='نشاط مخصص · اقرأ العبارة وحدّد إن كانت صحيحة أم خاطئة.';if(!q.length)alert('اكتب كل عبارة ثم | ثم صح أو خطأ، بعد مراجعة صحتها.');}
+let i=0,s=0,t=20,timer=null,active=false;
 const $=x=>document.getElementById(x);
 function start(){clearInterval(timer);i=0;s=0;t=20;active=true;$('score').textContent=0;$('start').style.display='none';$('time').textContent=t;show();timer=setInterval(()=>{t--;$('time').textContent=t;if(t<=0)finish()},1000)}
 function show(){if(i>=q.length){finish();return}$('round').textContent=i+1;$('bar').style.width=(i/q.length*100)+'%';$('statement').textContent=q[i][0];$('msg').textContent=''}
