@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>أكمل الجملة - مِداد</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:radial-gradient(circle at top,#263b70,#10172d 70%);color:#fff;min-height:100vh;padding:18px}
+.wrap{max-width:720px;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px}
+a,.btn{border:0;border-radius:13px;padding:11px 15px;background:#ffffff18;color:white;text-decoration:none;font-weight:bold;cursor:pointer}
+h1{font-size:clamp(24px,5vw,36px);margin:12px 0 5px}.sub{color:#c7d2fe;margin:0 0 20px}
+.panel{background:#ffffff12;border:1px solid #ffffff22;border-radius:22px;padding:20px;box-shadow:0 18px 50px #0004}
+.big{font-size:clamp(30px,8vw,56px);font-weight:900;text-align:center;margin:22px 0}
+input,select{width:100%;padding:14px;border-radius:12px;border:1px solid #ffffff30;background:#101a35;color:white;font-size:17px;margin:8px 0}
+button.primary{background:linear-gradient(135deg,#22c1c3,#5b6cff);color:white;border:0;border-radius:13px;padding:14px 18px;font-size:17px;font-weight:bold;cursor:pointer;width:100%;margin-top:10px}
+.options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:15px}
+.options button{padding:16px 8px;border-radius:14px;border:1px solid #ffffff30;background:#ffffff12;color:white;font-size:17px;cursor:pointer;min-height:58px}
+.options button:active,.primary:active{transform:scale(.98)}.stats{display:flex;justify-content:space-around;gap:8px;margin:15px 0;color:#dbeafe}
+.feedback{min-height:30px;text-align:center;font-weight:bold;margin:12px 0}.good{color:#86efac}.bad{color:#fca5a5}
+.progress{height:9px;background:#ffffff20;border-radius:99px;overflow:hidden}.progress span{display:block;height:100%;background:#34d399;width:0;transition:width .3s}
+@media(max-width:420px){body{padding:12px}.panel{padding:15px}.options{grid-template-columns:1fr 1fr}}
+</style></head><body><main class="wrap">
+<div class="top"><a href="../index.html">← ركن الألعاب</a><span>مِداد ✦</span></div>
+<h1>أكمل الجملة</h1><p class="sub">أكمل الجمل واختر الكلمة المناسبة قبل الانتقال للسؤال التالي.</p><section class="panel">
+<div class="stats"><span>النقاط: <b id="score">0</b></span><span>السؤال: <b id="round">1</b>/7</span></div>
+<div class="progress"><span id="bar"></span></div>
+<div class="big" id="sentence" style="font-size:clamp(23px,6vw,38px)">أكمل الجملة</div>
+<div class="options" id="opts"></div><div class="feedback" id="msg"></div>
+<button class="primary" id="start">ابدأ</button>
+</section>
+</main><script>
+const data=[["تشرق الشمس في ____","الصباح",["المساء","الصباح","الليل","الشتاء"]],["نكتب بالقلم على ____","الورق",["الزجاج","الماء","الورق","الرمل"]],["يعيش السمك في ____","الماء",["الماء","الهواء","التراب","النار"]],["عاصمة الجزائر هي ____","الجزائر",["وهران","قسنطينة","الجزائر","البليدة"]],["الكتاب نقرأه بـ ____","العينين",["الأذنين","العينين","اليدين","القدمين"]],["الفصل الذي تتساقط فيه الأوراق هو ____","الخريف",["الربيع","الصيف","الخريف","الشتاء"]],["مجموع 5 + 3 يساوي ____","8",["6","7","8","9"]]];
+let i=0,s=0,active=false;const $=x=>document.getElementById(x);
+function start(){i=0;s=0;active=true;$('score').textContent=0;$('start').style.display='none';show()}
+function show(){if(i===data.length){$('sentence').textContent='أحسنت! انتهى التحدي';$('opts').innerHTML='';$('msg').textContent='مجموعك '+s+' نقطة';$('start').textContent='إعادة اللعب';$('start').style.display='block';active=false;return}
+$('round').textContent=i+1;$('bar').style.width=(i/data.length*100)+'%';$('sentence').textContent=data[i][0];$('opts').innerHTML='';data[i][2].forEach(v=>{let b=document.createElement('button');b.textContent=v;b.onclick=()=>pick(v);$('opts').appendChild(b)});$('msg').textContent=''}
+function pick(v){if(!active)return;if(v===data[i][1]){s+=10;$('score').textContent=s;$('msg').textContent='ممتاز! +10';$('msg').className='feedback good'}else{$('msg').textContent='الإجابة الصحيحة: '+data[i][1];$('msg').className='feedback bad'}i++;setTimeout(show,750)}
+$('start').onclick=start;
+</script></body></html>
