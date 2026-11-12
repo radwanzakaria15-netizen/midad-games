@@ -64,19 +64,19 @@ templateSelect.addEventListener('change',updateFormatHelp);updateFormatHelp();
 document.getElementById('suggestQuestions').addEventListener('click',()=>{
  const source=document.getElementById('lessonContent').value.trim();
  if(!source){activityStatus.textContent='أدخل محتوى الدرس أو ارفع ملفًا أولًا.';return;}
- const sentences=source.split(/[.!؟?\\n]+/).map(s=>s.trim()).filter(s=>s.length>18).slice(0,8);
- const words=[...new Set((source.match(/[\\u0621-\\u064A]{3,}/g)||[]))];
+ const sentences=source.split(/[.!؟?\n]+/).map(s=>s.trim()).filter(s=>s.length>18).slice(0,8);
+ const words=[...new Set((source.match(/[\u0621-\u064A]{3,}/g)||[]))];
  if(!sentences.length||words.length<4){activityStatus.textContent='المحتوى قصير. اكتب الأسئلة يدويًا وفق الصيغة الموضحة.';return;}
  const t=templateSelect.value;let rows=[];
  if(t.includes('أكمل الجملة')){
-  const answers=sentences.map(s=>s.split(/\\s+/).pop().replace(/[،؛,.!?؟]+$/g,'')).filter(w=>w.length>1);
-  rows=sentences.map((s,i)=>{const a=answers[i];const stem=s.replace(/\\s+[^\\s]+$/,'')+' ____';const opts=[a,...answers.filter(x=>x!==a).slice(0,3)];return stem+' | '+a+' | '+opts.join('، ');});
+  const answers=sentences.map(s=>s.split(/\s+/).pop().replace(/[،؛,.!?؟]+$/g,'')).filter(w=>w.length>1);
+  rows=sentences.map((s,i)=>{const a=answers[i];const stem=s.replace(/\s+[^\s]+$/,'')+' ____';const opts=[a,...answers.filter(x=>x!==a).slice(0,3)];return stem+' | '+a+' | '+opts.join('، ');});
  }else if(t.includes('سباق الحروف')){
   rows=words.slice(0,8).map((w,i)=>{const opts=[w,...words.filter(x=>x!==w).slice(i,i+3)];return w[0]+' | '+opts.join('، ')+' | 1';});
  }else{
   rows=sentences.map(s=>s+' | صح أو خطأ');
  }
- document.getElementById('activityQuestions').value=rows.join('\\n');
+ document.getElementById('activityQuestions').value=rows.join('\n');
  activityStatus.textContent='أُنشئت مسودة قابلة للتعديل. راجع كل إجابة وصحّتها، خصوصًا أسئلة صح أم خطأ، قبل تشغيل النشاط.';
 });
 document.getElementById('saveActivity').addEventListener('click',()=>{
