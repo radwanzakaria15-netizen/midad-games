@@ -1,102 +1,44 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#287653"><title>مِداد | ركن الألعاب</title><link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet"><style>
-:root{--ink:#182b26;--muted:#708078;--green:#287653;--paper:#f1f5f2;--line:#dfe9e2}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Tajawal,system-ui,sans-serif}header{height:68px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 max(4vw,16px);position:sticky;top:0;z-index:5}.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:23px}.mark{width:40px;height:40px;border-radius:13px;background:linear-gradient(145deg,#58a77b,#1e563d);color:#fff;display:grid;place-items:center;box-shadow:0 5px 12px #1d654433}.brand small{font-size:12px;color:#829087;font-weight:500}.tag{font-size:12px;font-weight:800;background:#eaf4ed;color:var(--green);padding:8px 12px;border-radius:30px}main{max-width:1120px;margin:25px auto;padding:0 16px 60px}.hero{border-radius:25px;padding:27px 30px;color:#fff;background:radial-gradient(circle at 85% 20%,#72b88b 0,transparent 25%),linear-gradient(120deg,#173e32,#347b59);box-shadow:0 15px 35px #214c351c;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:260px;height:260px;border:1px solid #ffffff25;border-radius:50%;left:-60px;bottom:-200px;box-shadow:0 0 0 30px #ffffff0b,0 0 0 60px #ffffff0b}.hero h1{font-size:clamp(27px,4vw,39px);margin:0 0 7px;font-weight:900;position:relative}.hero p{margin:0;color:#d7eee0;line-height:1.8;position:relative}.stats{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px;position:relative}.stat{background:#ffffff17;border:1px solid #ffffff25;border-radius:12px;padding:8px 12px;font-size:12px;font-weight:800}.section{display:flex;justify-content:space-between;align-items:end;gap:10px;margin:26px 0 13px}.section h2{margin:0;font-size:23px}.section small{color:var(--muted)}.games{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.game{background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px;display:flex;gap:14px;align-items:center;box-shadow:0 7px 22px #234b3510;transition:.2s;min-width:0}.game:hover{transform:translateY(-3px);border-color:#b8d4c1;box-shadow:0 12px 28px #234b3518}.thumb{width:116px;height:96px;border-radius:15px;overflow:hidden;flex:none;background:#dcefe4}.thumb canvas{width:100%;height:100%;display:block}.info{flex:1;min-width:0}.game h3{font-size:19px;margin:0 0 5px;font-weight:900}.game p{font-size:13px;color:var(--muted);line-height:1.55;margin:0}.play{display:inline-flex;align-items:center;gap:7px;background:var(--green);color:#fff;padding:9px 15px;border-radius:11px;font-weight:900;margin-top:10px;text-decoration:none}.play:hover{background:#206144}.footer{text-align:center;color:#8a9890;font-size:12px;padding:30px 10px 0}@media(max-width:650px){main{margin-top:16px}.games{grid-template-columns:1fr}.game{padding:11px}.thumb{width:96px;height:86px}.hero{padding:22px}.section{align-items:center}.section h2{font-size:20px}.section small{font-size:11px;text-align:left}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
-
-/* Activity creator */
-.create-activity{display:inline-flex;align-items:center;gap:9px;margin-top:18px;padding:12px 19px;border:1px solid #ffffff55;border-radius:13px;background:#fff;color:#205b40;font:900 15px Tajawal;cursor:pointer;box-shadow:0 7px 18px #102d2025;position:relative;z-index:1}.create-activity:hover{transform:translateY(-2px)}
-.activity-modal{border:0;border-radius:22px;padding:0;width:min(620px,calc(100% - 24px));max-height:90vh;box-shadow:0 25px 80px #102d2040;color:var(--ink);font-family:Tajawal}.activity-modal::backdrop{background:#10251dcc;backdrop-filter:blur(4px)}.activity-head{padding:19px 22px;background:#edf6ef;display:flex;align-items:center;justify-content:space-between}.activity-head h2{margin:0;font-size:21px}.activity-close{border:0;background:#fff;border-radius:10px;width:36px;height:36px;font-size:21px;cursor:pointer;color:#315b43}.activity-body{padding:20px;overflow:auto;max-height:calc(90vh - 75px)}.activity-step{margin-bottom:17px}.activity-step label{display:block;font-weight:900;margin-bottom:7px}.activity-step input,.activity-step select,.activity-step textarea{width:100%;border:1px solid #d7e4da;border-radius:12px;padding:12px;font:500 14px Tajawal;background:#fff;color:var(--ink);outline:none}.activity-step textarea{min-height:110px;resize:vertical;line-height:1.7}.activity-step input:focus,.activity-step select:focus,.activity-step textarea:focus{border-color:#45966a;box-shadow:0 0 0 3px #45966a1a}.activity-help{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.6}.activity-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}.activity-primary,.activity-secondary{border:0;border-radius:11px;padding:11px 17px;font:900 14px Tajawal;cursor:pointer}.activity-primary{background:var(--green);color:#fff}.activity-secondary{background:#eaf2ec;color:#286044}.activity-status{font-size:13px;line-height:1.7;margin-top:12px;color:#286044;white-space:pre-wrap}.saved-activity{background:#f6faf7;border:1px solid #dce9df;border-radius:13px;padding:12px;margin-top:12px;font-size:13px}.saved-activity a{color:#216344;font-weight:900}
-@media(max-width:650px){.activity-body{padding:15px}.activity-head{padding:15px}}
-</style></head><body><header><div class="brand"><div class="mark">م</div><span>مِداد <small>| ركن الألعاب</small></span></div><div class="tag">مساحة التحدّي والتعلّم</div></header><main>
-<section class="hero"><h1>تعلّم، العب، وتحدَّ أصدقاءك!</h1><p>مرحباً بك في ركن ألعاب مِداد. اختر لعبتك المفضّلة، واكتشف تحديات تجمع بين المتعة والتعلّم.</p><div class="stats"><span class="stat">✦ 9 ألعاب متنوعة</span><span class="stat">✦ تجربة مناسبة للهاتف</span><span class="stat">✦ تحديات فردية وجماعية</span></div><button class="create-activity" id="openActivity" type="button">＋ إنشاء نشاط</button></section>
-<div class="section"><h2>التحديات الجماعية</h2><small>ألعاب تنافسية وحماسية</small></div><section class="games">
-<article class="game"><div class="thumb"><canvas id="v1"></canvas></div><div class="info"><h3>شدّ الحبل</h3><p>تحدٍّ جماعي يحتاج إلى التعاون والقوة والتركيز.</p><a class="play" href="games/شد الحبل.html">ابدأ اللعب ←</a></div></article></section>
-<div class="section"><h2>ألعاب اللغة والتواصل</h2><small>اكتشف الكلمات وطوّر مهاراتك</small></div><section class="games">
-<article class="game"><div class="thumb"><canvas id="v2"></canvas></div><div class="info"><h3>لعبة الصناديق</h3><p>افتح الصناديق واكتشف التحدّي المخفي.</p><a class="play" href="games/اسم المكان - نسخة 1.html">ابدأ اللعب ←</a></div></article><article class="game"><div class="thumb"><canvas id="v9"></canvas></div><div class="info"><h3>لعبة الكلمة</h3><p>اكتشف الكلمة الصحيحة من خلال التلميحات.</p><a class="play" href="games/اسم المكان - نسخة 2.html">ابدأ اللعب ←</a></div></article><article class="game"><div class="thumb"><canvas id="v10"></canvas></div><div class="info"><h3>لعبة ركلات الترجيح</h3><p>اختبر معلوماتك وسجّل هدف الإجابة الصحيحة.</p><a class="play" href="games/اسم المكان - نسخة 3.html">ابدأ اللعب ←</a></div></article>
-<article class="game"><div class="thumb"><canvas id="v3"></canvas></div><div class="info"><h3>لعبة التطابق</h3><p>طابق بين العناصر والإجابات الصحيحة.</p><a class="play" href="games/حرف ألف.html">ابدأ اللعب ←</a></div></article>
-<article class="game"><div class="thumb"><canvas id="v4"></canvas></div><div class="info"><h3>Reading &amp; Speaking</h3><p>تدرّب على القراءة والتحدث باللغة الإنجليزية.</p><a class="play" href="games/Reading-Speaking.html">ابدأ اللعب ←</a></div></article>
-<article class="game"><div class="thumb"><canvas id="v5"></canvas></div><div class="info"><h3>سباق الحروف</h3><p>اختر الكلمة المناسبة وانطلق في سباق الحروف.</p><a class="play" href="games/سباق الحروف.html">ابدأ اللعب ←</a></div></article>
-<article class="game"><div class="thumb"><canvas id="v6"></canvas></div><div class="info"><h3>أكمل الجملة</h3><p>اختر الكلمة المناسبة لإكمال العبارة.</p><a class="play" href="games/أكمل الجملة.html">ابدأ اللعب ←</a></div></article></section>
-<div class="section"><h2>ألعاب التفكير والمعرفة</h2><small>اختبر معلوماتك بسرعة</small></div><section class="games"><article class="game"><div class="thumb"><canvas id="v7"></canvas></div><div class="info"><h3>صح أم خطأ</h3><p>اقرأ العبارة وحدّد إن كانت صحيحة أم خاطئة.</p><a class="play" href="games/صح أم خطأ.html">ابدأ اللعب ←</a></div></article></section>
-
-<dialog class="activity-modal" id="activityModal" aria-labelledby="activityTitle"><div class="activity-head"><h2 id="activityTitle">إنشاء نشاط جديد</h2><button class="activity-close" id="closeActivity" aria-label="إغلاق">×</button></div><div class="activity-body">
-<div class="activity-step"><label for="activityTemplate">1. اختر قالب اللعبة</label><select id="activityTemplate"><option value="games/أكمل الجملة.html">أكمل الجملة</option><option value="games/سباق الحروف.html">سباق الحروف</option><option value="games/صح أم خطأ.html">صح أم خطأ</option><option value="games/شد الحبل - نشاط مخصص.html">شدّ الحبل</option></select></div>
-<div class="activity-step"><label for="lessonName">2. اسم الدرس</label><input id="lessonName" type="text" placeholder="مثال: أنواع الجملة في اللغة العربية"></div>
-<div class="activity-step"><label for="lessonFile">3. ارفع محتوى الدرس (PDF أو Word)</label><input id="lessonFile" type="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"><div class="activity-help">يدعم PDF وWord بصيغة DOCX. يمكنك أيضًا تجاوز الملف وكتابة المحتوى بنفسك.</div></div>
-<div class="activity-step"><label for="lessonContent">4. محتوى الدرس — يمكنك تعديله أو كتابته يدويًا</label><textarea id="lessonContent" placeholder="سيظهر هنا النص المستخرج من الملف، أو اكتب محتوى الدرس بنفسك..."></textarea></div>
-<div class="activity-step"><label for="activityQuestions">5. أسئلة النشاط (سؤال في كل سطر)</label><textarea id="activityQuestions" placeholder="اكتب الأسئلة وفق الصيغة الموضحة أسفل الحقل..."></textarea><div class="activity-help" id="questionFormatHelp">أكمل الجملة: الجملة الناقصة | الإجابة | خيار1، خيار2، خيار3، خيار4</div></div><div class="activity-help">القوالب المتصلة حاليًا بالأنشطة المخصصة: أكمل الجملة، سباق الحروف، صح أم خطأ، شدّ الحبل. ستُضاف بقية الألعاب تباعًا.</div>
-<div class="activity-actions"><button class="activity-secondary" id="suggestQuestions" type="button">اقتراح مسودة أسئلة</button><button class="activity-primary" id="saveActivity" type="button">حفظ النشاط</button></div><div class="activity-status" id="activityStatus" role="status"></div><div id="savedActivities"></div>
-</div></dialog>
-<footer class="footer">مِداد · مساحة تجمع التعلّم بالمتعة</footer></main>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js"></script><script>
-
-const activityModal=document.getElementById('activityModal');
-document.getElementById('openActivity').addEventListener('click',()=>activityModal.showModal());
-document.getElementById('closeActivity').addEventListener('click',()=>activityModal.close());
-activityModal.addEventListener('click',e=>{if(e.target===activityModal)activityModal.close()});
-const activityStatus=document.getElementById('activityStatus');
-const lessonFile=document.getElementById('lessonFile');
-lessonFile.addEventListener('change',async()=>{
- const file=lessonFile.files[0];if(!file)return;
- activityStatus.textContent='جارٍ قراءة الملف...';
- try{
-  let extracted='';
-  if(file.name.toLowerCase().endsWith('.pdf')){
-   if(!window.pdfjsLib)throw new Error('تعذّر تحميل قارئ PDF. تحقق من اتصال الإنترنت ثم أعد المحاولة.');
-   pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-   const pdf=await pdfjsLib.getDocument({data:await file.arrayBuffer()}).promise;
-   for(let p=1;p<=pdf.numPages;p++){const page=await pdf.getPage(p);const tc=await page.getTextContent();extracted+=tc.items.map(x=>x.str).join(' ')+'\n';}
-  }else if(file.name.toLowerCase().endsWith('.docx')){
-   if(!window.mammoth)throw new Error('تعذّر تحميل قارئ Word. تحقق من اتصال الإنترنت ثم أعد المحاولة.');
-   const result=await mammoth.extractRawText({arrayBuffer:await file.arrayBuffer()});extracted=result.value;
-  }else{throw new Error('صيغة الملف غير مدعومة. استخدم PDF أو DOCX.');}
-  document.getElementById('lessonContent').value=extracted.trim();
-  activityStatus.textContent=extracted.trim()?'تم استخراج النص. راجعه وعدّله قبل حفظ النشاط.':'لم نعثر على نص قابل للاستخراج. إذا كان PDF عبارة عن صور ممسوحة ضوئيًا، اكتب المحتوى يدويًا.';
- }catch(err){activityStatus.textContent=err.message||'حدث خطأ أثناء قراءة الملف.';}
-});
-const templateSelect=document.getElementById('activityTemplate');
-const formatHelp=document.getElementById('questionFormatHelp');
-function updateFormatHelp(){
- const t=templateSelect.value;
- formatHelp.textContent=t.includes('أكمل الجملة')?'الصيغة: الجملة مع فراغ | الإجابة الصحيحة | أربعة خيارات تفصل بينها فاصلة عربية.':
- t.includes('سباق الحروف')?'الصيغة: الحرف | أربعة خيارات تفصل بينها فاصلة عربية | رقم الخيار الصحيح (1 إلى 4).':
- t.includes('شد الحبل')?'الصيغة: السؤال | الإجابة الصحيحة | أربعة خيارات تفصل بينها فاصلة عربية.':
- 'الصيغة: العبارة | صح أو خطأ. اكتب صحة العبارة بنفسك بعد مراجعتها.';
-}
-templateSelect.addEventListener('change',updateFormatHelp);updateFormatHelp();
-document.getElementById('suggestQuestions').addEventListener('click',()=>{
- const source=document.getElementById('lessonContent').value.trim();
- if(!source){activityStatus.textContent='أدخل محتوى الدرس أو ارفع ملفًا أولًا.';return;}
- const sentences=source.split(/[.!؟?\n]+/).map(s=>s.trim()).filter(s=>s.length>18).slice(0,8);
- const words=[...new Set((source.match(/[\u0621-\u064A]{3,}/g)||[]))];
- if(!sentences.length||words.length<4){activityStatus.textContent='المحتوى قصير. اكتب الأسئلة يدويًا وفق الصيغة الموضحة.';return;}
- const t=templateSelect.value;let rows=[];
- if(t.includes('أكمل الجملة')){
-  const answers=sentences.map(s=>s.split(/\s+/).pop().replace(/[،؛,.!?؟]+$/g,'')).filter(w=>w.length>1);
-  rows=sentences.map((s,i)=>{const a=answers[i];const stem=s.replace(/\s+[^\s]+$/,'')+' ____';const opts=[a,...answers.filter(x=>x!==a).slice(0,3)];return stem+' | '+a+' | '+opts.join('، ');});
- }else if(t.includes('سباق الحروف')){
-  rows=words.slice(0,8).map((w,i)=>{const opts=[w,...words.filter(x=>x!==w).slice(i,i+3)];return w[0]+' | '+opts.join('، ')+' | 1';});
- }else if(t.includes('شد الحبل')){
-  rows=sentences.map((s,i)=>{const a=words[i%words.length];const opts=[a,...words.filter(x=>x!==a).slice(0,3)];return s+' | '+a+' | '+opts.join('، ');});
- }else{
-  rows=sentences.map(s=>s+' | صح أو خطأ');
- }
- document.getElementById('activityQuestions').value=rows.join('\n');
- activityStatus.textContent='أُنشئت مسودة قابلة للتعديل. راجع كل إجابة وصحّتها، خصوصًا أسئلة صح أم خطأ، قبل تشغيل النشاط.';
-});
-document.getElementById('saveActivity').addEventListener('click',()=>{
- const name=document.getElementById('lessonName').value.trim(),content=document.getElementById('lessonContent').value.trim(),questions=document.getElementById('activityQuestions').value.trim(),template=document.getElementById('activityTemplate').value;
- if(!name){activityStatus.textContent='اكتب اسم الدرس أولًا.';return;}
- if(!content&&!questions){activityStatus.textContent='أضف محتوى الدرس أو أسئلة النشاط أولًا.';return;}
- const supported=['games/أكمل الجملة.html','games/سباق الحروف.html','games/صح أم خطأ.html','games/شد الحبل - نشاط مخصص.html'];
- if(!supported.includes(template)){activityStatus.textContent='هذا القالب لم يُربط بعد بمنشئ الأنشطة.';return;}
- const item={id:Date.now(),name,content,questions,template,createdAt:new Date().toLocaleString('ar-DZ')};
- try{const list=JSON.parse(localStorage.getItem('midadActivities')||'[]');list.unshift(item);localStorage.setItem('midadActivities',JSON.stringify(list));}
- catch(e){activityStatus.textContent='تعذّر الحفظ في هذا المتصفح. انسخ محتوى النشاط واحتفظ به.';return;}
- activityStatus.textContent='تم حفظ النشاط. ستفتح اللعبة الآن بأسئلة هذا الدرس.';
- const launch=template+'?activity='+encodeURIComponent(item.id);
- const box=document.getElementById('savedActivities');box.innerHTML='<div class="saved-activity"><strong>تم حفظ: '+escapeActivity(name)+'</strong><br><span>القالب: '+escapeActivity(document.getElementById('activityTemplate').selectedOptions[0].text)+'</span><br><small>هذا النشاط مستقل عن الأسئلة الأصلية، ويُحفظ على هذا الجهاز والمتصفح.</small><br><a href="'+launch+'">تشغيل النشاط المخصص ←</a></div>';
- window.location.href=launch;
-});
-function escapeActivity(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-
-const $=id=>document.getElementById(id);function draw(id,t){let c=$(id),r=c.getBoundingClientRect(),d=devicePixelRatio||1,w=r.width,h=r.height;if(!w||!h)return;c.width=w*d;c.height=h*d;let g=c.getContext('2d');g.setTransform(d,0,0,d,0,0);g.clearRect(0,0,w,h);let bg=['#dbeafe','#fef3c7','#d1fae5','#ede9fe','#ffedd5','#fee2e2'][+id.slice(1)%6];g.fillStyle=bg;g.fillRect(0,0,w,h);if(id==='v1'){g.fillStyle='#b9dfc5';g.fillRect(0,h*.72,w,h*.28);g.strokeStyle='#9a6a3b';g.lineWidth=4;g.lineCap='round';g.beginPath();g.moveTo(8,h*.48);g.quadraticCurveTo(w/2,h*.48+Math.sin(t*3)*3,w-8,h*.48);g.stroke();g.fillStyle='#f59e0b';g.fillRect(w/2-2,h*.31,4,h*.34);g.fillStyle='#fff';g.beginPath();g.moveTo(w/2+2,h*.32);g.lineTo(w/2+16,h*.37);g.lineTo(w/2+2,h*.42);g.fill();for(let side=0;side<2;side++){let x=side===0?w*.22:w*.78,dir=side===0?1:-1,shift=Math.sin(t*4+side)*2;g.strokeStyle=side===0?'#2563eb':'#e05252';g.lineWidth=5;g.beginPath();g.moveTo(x,h*.48);g.lineTo(x-dir*8,h*.64);g.lineTo(x-dir*17,h*.69);g.moveTo(x,h*.53);g.lineTo(x+dir*13,h*.47+shift);g.stroke();g.fillStyle=side===0?'#3b82f6':'#ef6464';g.beginPath();g.arc(x,h*.32+shift,8,0,Math.PI*2);g.fill();g.fillStyle='#f4c7a1';g.beginPath();g.arc(x,h*.32+shift,5,0,Math.PI*2);g.fill();g.strokeStyle=side===0?'#2563eb':'#e05252';g.lineWidth=5;g.beginPath();g.moveTo(x,h*.39+shift);g.lineTo(x-dir*7,h*.48);g.stroke();}}else{g.fillStyle='#fff';g.beginPath();g.arc(w/2,h/2,Math.min(w,h)*.31,0,7);g.fill();g.fillStyle=['#2563eb','#b45309','#047857','#7c3aed','#c2410c','#dc2626'][+id.slice(1)-2]||'#287653';g.font='900 '+Math.floor(h*.48)+'px Tajawal';g.textAlign='center';g.textBaseline='middle';g.fillText(['؟','أ','ABC','ب','…','✓'][+id.slice(1)-2]||'م',w/2,h/2+2)}}let start=performance.now();function loop(now){let t=(now-start)/1000;for(let i=1;i<=13;i++)if($('v'+i))draw('v'+i,t);requestAnimationFrame(loop)}requestAnimationFrame(loop);window.addEventListener('resize',()=>{for(let i=1;i<=13;i++)if($('v'+i))draw('v'+i,(performance.now()-start)/1000)});
-</script></body></html>
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#287653">
+<title>مِداد | ركن الألعاب</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#182b26;--muted:#708078;--green:#287653;--paper:#f1f5f2;--line:#dfe9e2}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:var(--paper);color:var(--ink);font-family:Tajawal,system-ui,sans-serif}
+header{height:68px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 max(4vw,16px)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:23px}
+.mark{width:40px;height:40px;border-radius:13px;background:linear-gradient(145deg,#58a77b,#1e563d);color:#fff;display:grid;place-items:center;box-shadow:0 5px 12px #1d654433}
+.brand small{font-size:12px;color:#829087;font-weight:500}
+.tag{font-size:12px;font-weight:800;background:#eaf4ed;color:var(--green);padding:8px 12px;border-radius:30px}
+main{max-width:900px;margin:30px auto;padding:0 16px 50px}
+.hero{border-radius:25px;padding:30px;color:#fff;background:radial-gradient(circle at 85% 20%,#72b88b 0,transparent 25%),linear-gradient(120deg,#173e32,#347b59);box-shadow:0 15px 35px #214c351c}
+h1{font-size:clamp(27px,4vw,39px);margin:0 0 8px;font-weight:900}
+.hero p{margin:0;color:#d7eee0;line-height:1.9}
+.empty{margin-top:22px;min-height:260px;border:1px dashed #b9cfc0;border-radius:22px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px}
+.icon{width:70px;height:70px;border-radius:22px;background:#eaf4ed;color:#287653;display:grid;place-items:center;font-size:34px;margin-bottom:14px}
+.empty h2{margin:0 0 8px;font-size:23px}
+.empty p{max-width:480px;margin:0;color:var(--muted);line-height:1.9}
+.footer{text-align:center;color:#8a9890;font-size:12px;padding:28px 10px}
+</style>
+</head>
+<body>
+<header><div class="brand"><div class="mark">م</div><span>مِداد <small>| ركن الألعاب</small></span></div><div class="tag">مساحة التحدّي والتعلّم</div></header>
+<main>
+<section class="hero">
+<h1>ركن ألعاب مِداد</h1>
+<p>تم إخلاء المنصة من الألعاب السابقة. ستُجهّز مساحة الألعاب من جديد بتجارب وتحديات جديدة.</p>
+</section>
+<section class="empty">
+<div class="icon">✦</div>
+<h2>لا توجد ألعاب حاليًا</h2>
+<p>تمت إزالة الألعاب القديمة وروابطها من المنصة. ستظهر الألعاب الجديدة هنا عند إضافتها.</p>
+</section>
+<footer class="footer">مِداد · مساحة تجمع التعلّم بالمتعة</footer>
+</main>
+</body>
+</html>
