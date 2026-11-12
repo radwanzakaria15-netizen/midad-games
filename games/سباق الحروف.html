@@ -33,6 +33,7 @@ const currentActivity=readActivity();
 function parseCustomQuestions(raw){return raw.split(/\n+/).map(line=>line.split('|').map(v=>v.trim())).filter(p=>p.length>=3&&p[0]&&p[1]).map(p=>{const opts=p[1].split(/[،,]/).map(v=>v.trim()).filter(Boolean);return [p[0],opts,Math.max(0,Math.min(opts.length-1,Number(p[2])-1))]}).filter(q=>q[1].length>=2)}
 const qs=currentActivity?parseCustomQuestions(currentActivity.questions):defaultQs;
 if(currentActivity){document.querySelector('h1').textContent=currentActivity.name;document.querySelector('.sub').textContent='نشاط مخصص · اختر الكلمة التي تبدأ بالحرف الظاهر.';if(!qs.length)alert('لم نعثر على أسئلة صالحة. ارجع إلى منشئ النشاط واكتب الأسئلة بالصيغة المطلوبة.');}
+let i=0,score=0,active=false;
 
 const $=x=>document.getElementById(x);
 function start(){i=0;score=0;active=true;$('score').textContent=0;$('start').style.display='none';show()}
