@@ -58,6 +58,7 @@ function updateFormatHelp(){
  const t=templateSelect.value;
  formatHelp.textContent=t.includes('أكمل الجملة')?'الصيغة: الجملة مع فراغ | الإجابة الصحيحة | أربعة خيارات تفصل بينها فاصلة عربية.':
  t.includes('سباق الحروف')?'الصيغة: الحرف | أربعة خيارات تفصل بينها فاصلة عربية | رقم الخيار الصحيح (1 إلى 4).':
+ t.includes('شد الحبل')?'الصيغة: السؤال | الإجابة الصحيحة | أربعة خيارات تفصل بينها فاصلة عربية.':
  'الصيغة: العبارة | صح أو خطأ. اكتب صحة العبارة بنفسك بعد مراجعتها.';
 }
 templateSelect.addEventListener('change',updateFormatHelp);updateFormatHelp();
